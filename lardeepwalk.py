@@ -280,7 +280,7 @@ def start(father):
                     #flag=1
 		    local_testrightItem30+=1
 		break
-
+        fr.write('\n')
       
     if(len(local_tpredictPair)>0):
 	print "local_前100测试准确率为：",(local_testrightItem100/len(local_tpredictPair))
