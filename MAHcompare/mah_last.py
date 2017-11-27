@@ -131,13 +131,13 @@ def banjiad(xD,yD):
 
    
 def record(V,xNodeList,yNodeList):  
-    fwx=open('data400/Vector_x.txt','w')
+    fwx=open('data400_ld/Vector_x.txt','w')
     for i in range(2098,5313):
         fwx.write('%s '%xNodeList[i])
         for j in V[i][:]:
             fwx.write('%f '%j)
         fwx.write('\n')
-    fwy=open('data400/Vector_y.txt','w')
+    fwy=open('data400_ld/Vector_y.txt','w')
     i=0
     for i in range(2098,5120):
         fwy.write('%s '%yNodeList[i])
@@ -197,7 +197,7 @@ def start():
     #sio.savemat("LD.mat",{"L":matL,"D":	matD},oned_as='row')
     print "（L,D完成时间:",time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))'''
     #Lamda,V=linalg.eigs(A=matL,k=400,M=matD)
-    V=sio.loadmat("V400.mat")["V"]
+    V=sio.loadmat("V400_ld.mat")["V"]
     record(V,xNodeNameList,yNodeNameList)
     print "（Lamda,V完成时间:",time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
     return 0

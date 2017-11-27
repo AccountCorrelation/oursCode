@@ -1,5 +1,7 @@
 
 L=(L+L')/2
-[V,T]=eigs(L,400,'SA')
+L=sparse(L)
+D=sparse(D)
+[V,T]=eigs(L,D,900,'SA')
 
 

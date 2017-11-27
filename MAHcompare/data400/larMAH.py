@@ -21,15 +21,20 @@ def tpredict(all_testlist,tpredictPair,xDict,yDict):
 
     for nodeX in all_testlist:	
         if nodeX in xDict.keys():
-            vecX=xDict[nodeX]
+            vecX=xDict[nodeX];arrX=array(vecX)
+            sumhe=sqrt(sum(arrX*arrX.T))
+	    vecX=array(vecX/sumhe)
 	    disDict={}
 	    disDictnode=list()
 	    disDictdis=list()
 	else:	continue
 	for nodeY in yDict.keys():
-	    vecY=yDict[nodeY]
+	    vecY=yDict[nodeY];arrY=array(vecY)
+            sumhe=sqrt(sum(arrY*arrY.T))
+	    vecY=array(vecY/sumhe)
 	    #distance=abs(sum((vecX-vecY)*(vecX-vecY).T))
-            distance=-sum(vecX*vecY.T)/(sum(vecX*vecX.T)**(1/2)*sum(vecY*vecY.T)**(1/2))
+            #distance=-sum(vecX*vecY.T)/(sum(vecX*vecX.T)**(1/2)*sum(vecY*vecY.T)**(1/2))
+	    distance=-float(sum(vecX*vecY.T))/sqrt(sum(vecX*vecX.T))*sqrt(sum(vecY*vecY.T))
             ###print distance
 	    #distance=1+float(abs(dux-duy))/(float(dux+duy)/2)
             #corelation=1.0/distance
