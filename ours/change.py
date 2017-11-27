@@ -1,4 +1,5 @@
 # -*- coding: UTF-8 -*-
+#youtube等数据集上,按照一定比率修改边文件,产生差异.
 #科学计算包
 from numpy import *
 #运算符模块
