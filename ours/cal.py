@@ -18,7 +18,7 @@ from gensim import *
 def loadGraphDict(fileName):#
     dataDict = {}
     fx = open(fileName)
-    for line in fx.readlines():#m行
+    for line in fx.readlines():#
         lineArr = re.split(' |,|\t',line.strip())#
         lenth=len(lineArr)
         
@@ -44,7 +44,7 @@ def loadGraphDict(fileName):#
 #
 def start(filename):
     #father="data10/"
-    #第一部分：获得图中边的字典表示
+    #
     xDict=loadGraphDict(filename)
     #print "xDict=",xDict
     #yDict=loadGraphDict(father+'y2.txt')
@@ -56,8 +56,8 @@ def start(filename):
         #lineArr = line.strip().split()
         sumdu+=len(xDict[node])
         i+=1
-    print("共有几条="),i
-    print("节点平均度为="),float(sumdu/i)
+    print("items="),i
+    print("average degree="),float(sumdu/i)
 
 
 
