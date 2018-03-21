@@ -6,7 +6,7 @@ from numpy import *
 import numpy as np 
 #import node2vec
 #import networkx as nx
-#运算符模块
+#
 import operator
 import sys;
 import time
