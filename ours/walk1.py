@@ -1,7 +1,7 @@
 # -*- coding:  UTF-8 -*-
-#科学计算包
+#
 from numpy import *
-#运算符模块
+#
 import operator
 import sys;
 import re
@@ -16,40 +16,40 @@ from gensim import utils, matutils
 from gensim.models import word2vec
 from gensim import *
 
-#第一部分：获得图中边的字典表示
-def loadGraphDict(fileName):#初始化待处理数据
+#
+def loadGraphDict(fileName):#
     dataDict_out = {};dataDict_in = {}
     fx = open(fileName)
-    for line in fx.readlines():#m行
-        lineArr = re.split(' |,|\t',line.strip())#以空格分开,每一条边记录到
+    for line in fx.readlines():#
+        lineArr = re.split(' |,|\t',line.strip())#
         lenth=len(lineArr)
         
         if(lenth<2): 
             break;
         if(lineArr[0] not in dataDict_out.keys()):
             dataDict_out[str(lineArr[0])]=[str(lineArr[1])]
-#建立以某个节点的相邻边集权重字典
+#
         #elif(len(dataDict[str(lineArr[0])])>0)
         if(lineArr[1] not in dataDict_out[str(lineArr[0])]):
             dataDict_out[str(lineArr[0])].append(str(lineArr[1]))
-#在该节点的相邻边集上加一条新边
-    #有向图则只一边，无向图加两次。
+#
+    #
         if(lineArr[1] not in dataDict_in.keys()):
-            dataDict_in[str(lineArr[1])]=[str(lineArr[0])]#建立以某个节点的相邻边集权重字典
+            dataDict_in[str(lineArr[1])]=[str(lineArr[0])]#
         #elif(len(dataDict[str(lineArr[0])])>0)
         if(lineArr[0] not in dataDict_in[str(lineArr[1])]):
-            dataDict_in[str(lineArr[1])].append(str(lineArr[0]))#在该节点的相邻边集上加一条新边'''
+            dataDict_in[str(lineArr[1])].append(str(lineArr[0]))#
     return dataDict_out,dataDict_in
 
-#第二部分：根据图边字典进行（权重）随机游走得到序列集
+#
 def walk(graphDict,num_paths,walkfile,flag):
-    walkList=[]#每一项是一条路径
+    walkList=[]#
     f1=open(walkfile,'a+')
-    for j in range(int(num_paths)): #暂且写成从所有节点开始外循环趟数
+    for j in range(int(num_paths)): #
         nodes=list(graphDict.keys())
-	random.Random(0).shuffle(nodes)   #打乱顺序
-    	for keyStartNode in nodes: #暂且写成从每个节点开始循环
-            #walkList.append(keyStartNode)
+	random.Random(0).shuffle(nodes)   #
+    	for keyStartNode in nodes: #
+            #walkList.append(keyStartNode
             #nowLength=1
             if len(graphDict[keyStartNode])<1:continue;
             for firstcengNeighbor in graphDict[keyStartNode]:
@@ -67,7 +67,7 @@ def walk(graphDict,num_paths,walkfile,flag):
     f1.close()
     return walkList
 
-#2.1递归函数，每次根据权重走一步，走过的边不再走，但水平有限，暂且写个不管权重的随机游走，
+#2.
 def RandomWalk(graphDict,walkList,nowNode,nowLength,walkLength=40):
     #randomIter=random.randint(0, len(graphDict[nowNode]))
     if(nowLength>=walkLength):	
@@ -95,16 +95,16 @@ def RandomWalk(graphDict,walkList,nowNode,nowLength,walkLength=40):
 
 
 
-#START是主函数
+#
 def start(father,numpaths,filename='foursquare_following_add'):
     #father="data0/"
-    #第一部分：获得图中边的字典表示
+    #
     xDict_out,xDict_in=loadGraphDict(father+'foursquare_following_add')
     #print "xDict=",xDict
     yDict_out,yDict_in=loadGraphDict(father+'twitter_following_add')
     #print "yDict=",yDict
     while(numpaths!='stop'):
-        #第二部分：根据图边字典进行随机游走得到序列集
+        #
         try:
             numpaths=int(numpaths)
         except EXception:
@@ -115,7 +115,7 @@ def start(father,numpaths,filename='foursquare_following_add'):
         #print "walkListY=",walkListY
         walkListX_in=walk(xDict_in,numpaths,walkfile=father+'walk1all_X.txt',flag='in')
         walkListY_in=walk(yDict_in,numpaths,walkfile=father+'walk1all_Y.txt',flag='in')
-        print "请输入游走趟数numpaths"
+        print "plase input walk numpaths"
         numpaths = raw_input()
 
 
