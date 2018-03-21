@@ -1,8 +1,8 @@
 # -*- coding:  UTF-8 -*-
-#科学计算包
+#
 from numpy import *
 import numpy
-#运算符模块
+#
 import operator
 import sys;
 import re
@@ -15,37 +15,37 @@ import time
 #random
 import random
 from random import shuffle
-#第一部分：获得图中边的字典表示
-def loadGraphDict(fileName):#初始化待处理数据
+#
+def loadGraphDict(fileName):#
     dataDict = {}
     fx = open(fileName)
-    for line in fx.readlines():#m行
-        lineArr = re.split(' |,|\t',line.strip())#以空格分开,每一条边记录到
+    for line in fx.readlines():#
+        lineArr = re.split(' |,|\t',line.strip())#
         lenth=len(lineArr)
         
         if(lenth<2): 
             break;
         if(lineArr[0] not in dataDict.keys()):
             dataDict[str(lineArr[0])]=[str(lineArr[1])]
-#建立以某个节点的相邻边集权重字典
+#
         #elif(len(dataDict[str(lineArr[0])])>0)
         if(lineArr[1] not in dataDict[str(lineArr[0])]):
             dataDict[str(lineArr[0])].append(str(lineArr[1]))
-#在该节点的相邻边集上加一条新边
-    #有向图则只一边，无向图加两次。
+#
+    #
         if(lineArr[1] not in dataDict.keys()):
-            dataDict[str(lineArr[1])]=[str(lineArr[0])]#建立以某个节点的相邻边集权重字典
+            dataDict[str(lineArr[1])]=[str(lineArr[0])]#
         #elif(len(dataDict[str(lineArr[0])])>0)
         if(lineArr[0] not in dataDict[str(lineArr[1])]):
-            dataDict[str(lineArr[1])].append(str(lineArr[0]))#在该节点的相邻边集上加一条新边
+            dataDict[str(lineArr[1])].append(str(lineArr[0]))#
     return dataDict
-#第一部分：获得图中边的字典表示
-def loadNodeList(fileName):#初始化待处理数据
+#
+def loadNodeList(fileName):#
     nodeNameList =[];nodeDuList=[];
     fx = open(fileName)
     j=0
-    for line in fx.readlines():#m行
-        lineArr = re.split(' |,|\t',line.strip())#以空格分开,每一条边记录到
+    for line in fx.readlines():#
+        lineArr = re.split(' |,|\t',line.strip())#
         lenth=len(lineArr)
         j+=1
         if(lenth<2): 
@@ -67,8 +67,8 @@ def getsamefriendlenth(a,b):
     return len(sames)
 
 
-#接下来梳理community关系
-def loadHHT(fileName,xnamelist):#初始化待处理数据
+#
+def loadHHT(fileName,xnamelist):#
     n=len(xnamelist)
     HHT=array([[0]*n]*n)
     dataDict = loadGraphDict(fileName)
@@ -158,7 +158,7 @@ def readflist(filename):
     fl=[] 
     fr=open(filename,'r')
     for line in fr.readlines():
-        lineArr = re.split(' |,|\t',line.strip())#以空格分开,每一条边记录到
+        lineArr = re.split(' |,|\t',line.strip())#
         lenth=len(lineArr)
         if(lenth<2): 
             break;
@@ -171,19 +171,19 @@ def readflist(filename):
 
 def start():
     gc.collect()
-    print "（开始时间:",time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+    print "（start time:",time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
     xNodeNameList,xNodeDuList=loadNodeList('x_du.txt')
     yNodeNameList,yNodeDuList=loadNodeList('y_du.txt')
     '''xHHT=array(loadHHT('foursquare_following',xNodeNameList));
     xD=diag(xNodeDuList);xL=xD-xHHT;
     recordlist(xHHT,'xHHT.txt');   recordlist(xL,'xL.txt');    recordlist(xD,'xD.txt');
     xHHT= readflist('xHHT.txt');   xL=readflist('xL.txt');    xD=readflist('xD.txt');
-    print "（x的H,D完成时间:",time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+    print "（x's H,D  end time:",time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
     yHHT=array(loadHHT('twitter_following',yNodeNameList));
     yD=diag(yNodeDuList);yL=yD-yHHT;
     recordlist(yHHT,'yHHT.txt');   recordlist(yL,'yL.txt');    recordlist(yD,'yD.txt');
     yHHT= readflist('yHHT.txt');   yL=readflist('yL.txt');    yD=readflist('yD.txt');
-    print "（y的H,D完成时间:",time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+    print "（y's H,Dend time:",time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
     L=banjia(xL,yL)
     D=banjiad(xD,yD)
     #matL=matrix(L)
@@ -195,11 +195,11 @@ def start():
     matL=readflist('L.txt');matD=readflist('D.txt');
     #recordlist(matL,'L.txt');   recordlist(matD,'D.txt') 
     #sio.savemat("LD.mat",{"L":matL,"D":	matD},oned_as='row')
-    print "（L,D完成时间:",time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))'''
+    print "（L,D end time:",time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))'''
     #Lamda,V=linalg.eigs(A=matL,k=400,M=matD)
     V=sio.loadmat("V400_ld.mat")["V"]
     record(V,xNodeNameList,yNodeNameList)
-    print "（Lamda,V完成时间:",time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+    print "（Lamda,V  end time:",time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
     return 0
 
 if __name__=="__main__":
