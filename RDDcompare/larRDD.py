@@ -1,10 +1,10 @@
 # -*- coding:  UTF-8 -*-
-#科学计算包
+#
 from numpy import *
 import numpy as np 
 #import node2vec
 #import networkx as nx
-#运算符模块
+#
 import operator
 import sys;
 import time
@@ -14,7 +14,7 @@ import re;
 from os import listdir
 
 
-#第五部分：预测所有关联账户
+#
 
 def tpredict(all_testlist,tpredictPair,xDict,yDict):
 
@@ -54,7 +54,7 @@ def readDuDict(filename):
     fr=open(filename,'r')
     duDict={}
     for line in fr.readlines():
-        lineArr = re.split(' |,|\t',line.strip())#以空格分开,每一条边记录到
+        lineArr = re.split(' |,|\t',line.strip())#
         lenth=len(lineArr)
         if(lenth<2):break;
         duDict[lineArr[0]]=float(lineArr[2])
@@ -81,7 +81,7 @@ def start():
         all_testYlist.append(nodeY)
     ft.close()
         
-    print "*******************得到data了*******************"
+    print "*******************data*******************"
 
   
      
@@ -89,7 +89,7 @@ def start():
 ########################test##################################
     tpredictPair={}
     tpredict(all_testlist,tpredictPair,xDict,yDict)
-    #判断准确度
+    #
     testrightItem100=0.0;
     testrightItem30=0.0;
     testrightItem15=0.0;
@@ -131,20 +131,20 @@ def start():
         fr.write('\n')
       
     if(len(tpredictPair)>0):
-	print "前100测试准确率为：",(testrightItem100/len(tpredictPair))
-	print "前30测试准确率为：",(testrightItem30/len(tpredictPair))
-	print "前15测试准确率为：",(testrightItem15/len(tpredictPair))
-	print "前10测试准确率为：",(testright10/len(tpredictPair))
-	print "前8测试准确率为：",(testright8/len(tpredictPair))
-	print "前5测试准确率为：",(testright5/len(tpredictPair))
-	print "前3测试准确率为：",(testright3/len(tpredictPair))
-	print "前1测试准确率为：",(testright1/len(tpredictPair))
-        print "测试条数为：",(len(tpredictPair))
+	print "top 100 test accuracy：",(testrightItem100/len(tpredictPair))
+	print "top 30 test accuracy：",(testrightItem30/len(tpredictPair))
+	print "top 15 test accuracy：",(testrightItem15/len(tpredictPair))
+	print "top 10 test accuracy：",(testright10/len(tpredictPair))
+	print "top 8 test accuracy：",(testright8/len(tpredictPair))
+	print "top 5 test accuracy：",(testright5/len(tpredictPair))
+	print "top 3 test accuracy：",(testright3/len(tpredictPair))
+	print "top 1 test accuracy：",(testright1/len(tpredictPair))
+        print "test items：",(len(tpredictPair))
     else:
-	print "出错了，测试准确率，被0除！！"
+	print "error，test accuracy，division 0！！"
     del(tpredictPair)
 
-    print "（计算测试集预测结果和test准确度）完成时间:",time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+    print "compute and predict end time:",time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
    
     gc.collect()
 if __name__=="__main__":
