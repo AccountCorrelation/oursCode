@@ -7,11 +7,6 @@ import sys
 import re
 #listdir
 from os import listdir
-#word2vec
-from gensim import corpora, models, similarities
-from gensim import utils, matutils
-from gensim.models import word2vec
-from gensim import *
 
 
 #
