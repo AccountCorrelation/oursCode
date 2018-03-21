@@ -16,7 +16,7 @@ def loadGraphDict(father='data/',fileName='x3.txt'):#
     dataDict = {}
     fx = open(father+fileName)
     j=0
-    for line in fx.readlines():#m行
+    for line in fx.readlines():#
         lineArr = re.split(' |,|\t',line.strip())#
         lenth=len(lineArr)
         if(j%10000==0):print 'j=',j
@@ -45,7 +45,7 @@ def loadCircleDict(father='data/',fileName='x3.txt'):#
     communityDict['0']=0
     fx = open(father+fileName)
     j=0
-    for line in fx.readlines():#m行
+    for line in fx.readlines():#
         lineArr = re.split(' |,|\t',line.strip())#
         lenth=len(lineArr)
         if(j%10000==0):print 'i=',j
