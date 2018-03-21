@@ -1,7 +1,7 @@
 # -*- coding:  UTF-8 -*-
-#科学计算包
+#
 from numpy import *
-#运算符模块
+#
 import operator
 import sys;
 import re
@@ -11,13 +11,13 @@ from os import listdir
 import random
 from random import shuffle
 
-#第一部分：获得图中边的字典表示
-def loadGraphDict(father='data/',fileName='x3.txt'):#初始化待处理数据
+#
+def loadGraphDict(father='data/',fileName='x3.txt'):#
     dataDict = {}
     fx = open(father+fileName)
     j=0
     for line in fx.readlines():#m行
-        lineArr = re.split(' |,|\t',line.strip())#以空格分开,每一条边记录到
+        lineArr = re.split(' |,|\t',line.strip())#
         lenth=len(lineArr)
         if(j%10000==0):print 'j=',j
         j+=1
@@ -25,28 +25,28 @@ def loadGraphDict(father='data/',fileName='x3.txt'):#初始化待处理数据
             break;
         if(lineArr[0] not in dataDict.keys()):
             dataDict[str(lineArr[0])]=[str(lineArr[1])]
-#建立以某个节点的相邻边集权重字典
+#
         #elif(len(dataDict[str(lineArr[0])])>0)
         if(lineArr[1] not in dataDict[str(lineArr[0])]):
             dataDict[str(lineArr[0])].append(str(lineArr[1]))
-#在该节点的相邻边集上加一条新边
-    #有向图则只一边，无向图加两次。
+#
+    #
         if(lineArr[1] not in dataDict.keys()):
-            dataDict[str(lineArr[1])]=[str(lineArr[0])]#建立以某个节点的相邻边集权重字典
+            dataDict[str(lineArr[1])]=[str(lineArr[0])]#
         #elif(len(dataDict[str(lineArr[0])])>0)
         if(lineArr[0] not in dataDict[str(lineArr[1])]):
-            dataDict[str(lineArr[1])].append(str(lineArr[0]))#在该节点的相邻边集上加一条新边
+            dataDict[str(lineArr[1])].append(str(lineArr[0]))#
     return dataDict
 
-#接下来梳理community关系
-def loadCircleDict(father='data/',fileName='x3.txt'):#初始化待处理数据
+#
+def loadCircleDict(father='data/',fileName='x3.txt'):#
     communityID=0
     communityDict={}
     communityDict['0']=0
     fx = open(father+fileName)
     j=0
     for line in fx.readlines():#m行
-        lineArr = re.split(' |,|\t',line.strip())#以空格分开,每一条边记录到
+        lineArr = re.split(' |,|\t',line.strip())#
         lenth=len(lineArr)
         if(j%10000==0):print 'i=',j
         j+=1
