@@ -1,7 +1,7 @@
 # -*- coding:  UTF-8 -*-
-#科学计算包
+#
 from numpy import *
-#运算符模块
+#
 import operator
 import sys;
 import re
@@ -16,35 +16,35 @@ from gensim.models import word2vec
 from gensim import *
 
 
-#第一部分：获得图中边的字典表示
-def loadGraphDict(fileName):#初始化待处理数据
+#
+def loadGraphDict(fileName):#
     dataDict = {}
     fx = open(fileName)
-    for line in fx.readlines():#m行
-        lineArr = re.split(' |,|\t',line.strip())#以空格分开,每一条边记录到
+    for line in fx.readlines():#
+        lineArr = re.split(' |,|\t',line.strip())#
         lenth=len(lineArr)
         
         if(lenth<2): 
             break;
         if(lineArr[0] not in dataDict.keys()):
             dataDict[str(lineArr[0])]=[str(lineArr[1])]
-#建立以某个节点的相邻边集权重字典
+#
         #elif(len(dataDict[str(lineArr[0])])>0)
         if(lineArr[1] not in dataDict[str(lineArr[0])]):
             dataDict[str(lineArr[0])].append(str(lineArr[1]))
-#在该节点的相邻边集上加一条新边
-    #有向图则只一边，无向图加两次。
+#
+    #
         if(lineArr[1] not in dataDict.keys()):
-            dataDict[str(lineArr[1])]=[str(lineArr[0])]#建立以某个节点的相邻边集权重字典
+            dataDict[str(lineArr[1])]=[str(lineArr[0])]#
         #elif(len(dataDict[str(lineArr[0])])>0)
         if(lineArr[0] not in dataDict[str(lineArr[1])]):
-            dataDict[str(lineArr[1])].append(str(lineArr[0]))#在该节点的相邻边集上加一条新边
+            dataDict[str(lineArr[1])].append(str(lineArr[0]))#
     return dataDict
 
 
 
 
-#START是主函数
+#
 def start():
     #father="data20/"
     nLen = len(sys.argv);
@@ -52,7 +52,7 @@ def start():
         print("argv %d:%s" %(i, sys.argv[i]));  
     father=str(sys.argv[1])
     filename=str(sys.argv[2])
-    #第一部分：获得图中边的字典表示
+    #
     #xDict=change.start(father,0.1,filename)
     #xDict=loadGraphDict(father+filename)
     #print "xDict=",xDict
@@ -80,7 +80,7 @@ def start():
             randomIter=random.randint(0, 3);
             nowIter=0
 	i+=1
-    print("共有几条="),i
+    print("items="),i
     fc.close()
     ft.close()
 
