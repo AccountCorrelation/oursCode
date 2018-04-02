@@ -32,7 +32,7 @@ space of network G′, we then calculate the cosine similarity between vector v�
 v in V′, and return the top-k similar results as the predicted correlated accounts in G′ of account a in G.
 ```
 
-## True/False positive rate for synthetic datasets
+## ![#1589F0](https://placehold.it/15/1589F0/000000?text=+)`True/False positive rate for synthetic datasets`
 1. The true/false positive rate for `YouTube` dataset
 ![YouTube](./True-False-Positive-Rate/youtube.png)
 
