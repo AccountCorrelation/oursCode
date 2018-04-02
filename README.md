@@ -26,17 +26,17 @@ vi in V ′, and return the top-k similar results as the predicted correlated ac
 ```
 
 # True/False positive rate for synthetic datasets
-1. YouTube dataset
+1. Click to see the true/false positive rate for YouTube dataset
 ![YouTube](./True-False-Positive-Rate/youtube.pdf)
 
-2. Buzznet dataset
+2. Click to see the true/false positive rate for Buzznet dataset
 ![Buzznet](./True-False-Positive-Rate/buzznet.pdf)
 
-3. Flickr dataset
+3. Click to see the true/false positive rate for Flickr dataset
 ![Flickr](./True-False-Positive-Rate/flickr.pdf)
 
-4. Twitter dataset
+4. Click to see the true/false positive rate for Twitter dataset
 ![Twitter](./True-False-Positive-Rate/twitter.pdf)
 
-5. BlogCatalog dataset
+5. Click to see the true/false positive rate for BlogCatalog dataset
 ![BlogCatalog](./True-False-Positive-Rate/cbx.pdf)
