@@ -30,7 +30,7 @@ vi in V ′, and return the top-k similar results as the predicted correlated ac
 ![YouTube](./True-False-Positive-Rate/youtube.pdf)
 
 2. Click to see the true/false positive rate for `Buzznet` dataset
-![Buzznet](./True-False-Positive-Rate/buzznet.pdf)
+![Buzznet](https://github.com/AccountCorrelation/oursCode/blob/master/True-False-Positive-Rate/buzznet.pdf)
 
 3. Click to see the true/false positive rate for `Flickr` dataset
 ![Flickr](./True-False-Positive-Rate/flickr.pdf)
