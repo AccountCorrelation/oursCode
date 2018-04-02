@@ -1,10 +1,10 @@
 # Implementation details:
 ## "Corpus" Generation
-```
+
 ACCM uses a function RandomWalk(·) to generate account sequences, which works as follows: it starts at a vertex 
 (account) a~i~ and proceeds along an uniformly randomly selected edge to visit its neighboring account 
 at each step, until the maximum length L is reached. 
-```
+
 ## Representation Learning
 ```
 We apply SG model to the network to learn node representations while capturing latent structural relationships 
