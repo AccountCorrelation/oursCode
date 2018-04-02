@@ -47,3 +47,6 @@ v in V′, and return the top-k similar results as the predicted correlated acco
 
 5. The true/false positive rate for `BlogCatalog` dataset
 ![BlogCatalog](./True-False-Positive-Rate/cbx.png)
+
+
+## ![#1589F0](https://placehold.it/15/1589F0/000000?text=+)`Acknowledgments`
