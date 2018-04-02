@@ -1,4 +1,10 @@
 # Learning to Correlate Accounts across Online Social Networks: An Embedding-based Approach
+
+Overview of the proposed approach. For simplicity, we use two networks G and G’ to explain the flow of cross-site account correlating. Network can directed or undirected (each link can be viewed as two directed links). First, two corpuses are generated using the tradtional random walk method. Second, each account (node) representation is learned via hs-ACCM or ns-ACCM. Then we align two embedding spaces into a common space. Finally, accounts close to each are likely to be linked to the same identity between G and G’.
+
+![Framework](https://github.com/AccountCorrelation/oursCode/blob/master/framework/framework.png)
+
+
 ## Implementation details:
 ### "Corpus" Generation
 ```
