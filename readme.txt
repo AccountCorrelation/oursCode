@@ -1,8 +1,13 @@
 # Implementation details:
 1. "Corpus" Generation
--ACCM uses a function RandomWalk(·) to generate account sequences, which works as follows: it starts at a vertex (account) a<sup>i</sup> and proceeds along an uniformly randomly selected edge to visit its neighboring account at each step, until the maximum length L is reached. 
--先根据好友关系（边关系）进行随机游走，生成节点的序列。游走趟数指用于后续模型训练的每个节点的序列条数。
-2.再将节点序列放入word2vec模型训练，设置窗口、维度、模型结构（CBOW和SKIP-GRAM）和加速训练方法（Hirachical和Negative Sampling）等各项参数，得到每个用户节点的向量。
-3.分别对OSN_X和OSN_Y的社交网络中的好友关系进行步骤1、2处理，得到用户节点在各自社交网络向量空间的向量。利用已知相关联的锚节点在两个空间中的坐标，通过线性回归求解两个向量空间的转换矩阵W。
-4.根据OSN_X中每一个未被关联的用户的向量，乘以W矩阵，得到该向量在OSN_Y空间的映射向量。然后计算该映射向量和OSN_Y中所有用户的向量间的距离，取距离最小的前topN个作为后选集，统计预测准确度。
-5.调整参数：游走趟数、word2vec模型训练窗口，word2vec生成向量的维度、word2vec模型结构、word2vec加速训练方法，重复步骤1到4，记录参数和实验结果准确度，绘制图表。
+- ACCM uses a function RandomWalk(·) to generate account sequences, which works as follows: it starts at a vertex (account) a<sup>i</sup> and proceeds along an uniformly randomly selected edge to visit its neighboring account at each step, until the maximum length L is reached. 
+
+2. Representation Learning
+- We apply SG model to the network to learn node representations while capturing latent structural relationships among nodes. 
+
+3. Transformation Matrix (W) Learning
+- After learning social representations of accounts into a low-dimensional space for each network, we need to transform these learned embeddings across two (or more) networks to a common space for comparison. In this work, we train a linear regression model to learn the transformation matrix towards this goal.
+
+4. Alignment and Correlation
+- Finally, the account correlation can be performed through the k-nearest neighbor searching. More formally, for any account in a network G (∀a ∈ V ), we project its learned representation vector v to the embedding space of the network G′ using the optimal W∗. A a
+new vector is obtained v′a = W∗ · va. In the representation space of network G′, we then calculate the cosine similarity between vector v′(a) and each embedding vector vi in V ′, and return the top-k similar results as the predicted correlated accounts in G′ of account a in G.
