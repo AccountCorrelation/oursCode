@@ -5,7 +5,7 @@ Overview of the proposed approach. For simplicity, we use two networks G and Gâ€
 ![Framework](https://github.com/AccountCorrelation/oursCode/blob/master/framework/framework.png)
 
 
-## Implementation details:
+## ![#1589F0](https://placehold.it/15/1589F0/000000?text=+)`Implementation details:`
 ### "Corpus" Generation
 ```
 ACCM uses a function RandomWalk(Â·) to generate account sequences, which works as follows: it starts at a vertex 
