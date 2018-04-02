@@ -30,5 +30,5 @@ vi in V ′, and return the top-k similar results as the predicted correlated ac
 ![Buzznet](./True-False-Positive-Rate/buzznet.pdf)
 
 <p align="center">
-  <img src="./True-False-Positive-Rate/buzznet.pdf" width="350"/>
+  <img src="./True-False-Positive-Rate/buzznet.pdf" width="50"/>
 </p>
