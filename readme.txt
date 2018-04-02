@@ -1,4 +1,4 @@
-# Implementation details:
+** Implementation details:**
 1. "Corpus" Generation
 - ACCM uses a function RandomWalk(·) to generate account sequences, which works as follows: it starts at a vertex (account) a<sup>i</sup> and proceeds along an uniformly randomly selected edge to visit its neighboring account at each step, until the maximum length L is reached. 
 
