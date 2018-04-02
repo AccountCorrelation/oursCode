@@ -33,17 +33,17 @@ v in V′, and return the top-k similar results as the predicted correlated acco
 ```
 
 ## True/False positive rate for synthetic datasets
-1. Click to see the true/false positive rate for `YouTube` dataset
+1. The true/false positive rate for `YouTube` dataset
 ![YouTube](./True-False-Positive-Rate/youtube.png)
 
-2. Click to see the true/false positive rate for `Buzznet` dataset
+2. The true/false positive rate for `Buzznet` dataset
 ![Buzznet](https://github.com/AccountCorrelation/oursCode/blob/master/True-False-Positive-Rate/buzznet.png)
 
-3. Click to see the true/false positive rate for `Flickr` dataset
+3. The true/false positive rate for `Flickr` dataset
 ![Flickr](./True-False-Positive-Rate/flickr.png)
 
-4. Click to see the true/false positive rate for `Twitter` dataset
+4. The true/false positive rate for `Twitter` dataset
 ![Twitter](./True-False-Positive-Rate/twitter.png)
 
-5. Click to see the true/false positive rate for `BlogCatalog` dataset
+5. The true/false positive rate for `BlogCatalog` dataset
 ![BlogCatalog](./True-False-Positive-Rate/cbx.png)
