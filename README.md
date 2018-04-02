@@ -28,3 +28,7 @@ vi in V ′, and return the top-k similar results as the predicted correlated ac
 # True/False positive rate for synthetic datasets
 1. Buzznet dataset
 ![Buzznet](./True-False-Positive-Rate/buzznet.pdf)
+
+<p align="center">
+  <img src="./True-False-Positive-Rate/buzznet.pdf" width="350"/>
+</p>
