@@ -2,7 +2,7 @@
 ## "Corpus" Generation
 ```
 ACCM uses a function RandomWalk(·) to generate account sequences, which works as follows: it starts at a vertex 
-(account) $a_i$ and proceeds along an uniformly randomly selected edge to visit its neighboring account 
+(account) a~i~ and proceeds along an uniformly randomly selected edge to visit its neighboring account 
 at each step, until the maximum length L is reached. 
 ```
 ## Representation Learning
@@ -20,7 +20,7 @@ work, we train a linear regression model to learn the transformation matrix towa
 ```
 Finally, the account correlation can be performed through the k-nearest neighbor searching. More formally, 
 for any account in a network G (∀a ∈ V ), we project its learned representation vector v to the embedding 
-space of the network G′ using the optimal W∗. A. a new vector is obtained v′a = W∗ · va. In the representation 
+space of the network G′ using the optimal W^*. A. a new vector is obtained v′a = W^* · va. In the representation 
 space of network G′, we then calculate the cosine similarity between vector v′(a) and each embedding vector 
 vi in V ′, and return the top-k similar results as the predicted correlated accounts in G′ of account a in G.
 ```
