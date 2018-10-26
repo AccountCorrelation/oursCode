@@ -18,7 +18,7 @@ from gensim import *
 
 
 
-#全局变量
+#global variables
 comm=MPI.COMM_WORLD
 comm_rank=comm.Get_rank()
 comm_size=comm.Get_size()
@@ -127,7 +127,7 @@ def start(father):
         #
         realPairD={}
         fr = open(father+'trainConnect3148.txt_0')
-        for line in fr.readlines():#m行
+        for line in fr.readlines():#m lines
             lineArr = line.strip().split()#
             if(lineArr[0] not in realPairD.keys()):
                 realPairD[str(lineArr[0])]=str(lineArr[1])#
