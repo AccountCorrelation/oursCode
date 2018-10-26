@@ -32,21 +32,5 @@ space of network G′, we then calculate the cosine similarity between vector v�
 v in V′, and return the top-k similar results as the predicted correlated accounts in G′ of account a in G.
 ```
 
-## ![#1589F0](https://placehold.it/15/1589F0/000000?text=+)`True/False positive rate for synthetic datasets`
-1. The true/false positive rate for `YouTube` dataset
-![YouTube](./True-False-Positive-Rate/youtube.png)
-
-2. The true/false positive rate for `Buzznet` dataset
-![Buzznet](https://github.com/AccountCorrelation/oursCode/blob/master/True-False-Positive-Rate/buzznet.png)
-
-3. The true/false positive rate for `Flickr` dataset
-![Flickr](./True-False-Positive-Rate/flickr.png)
-
-4. The true/false positive rate for `Twitter` dataset
-![Twitter](./True-False-Positive-Rate/twitter.png)
-
-5. The true/false positive rate for `BlogCatalog` dataset
-![BlogCatalog](./True-False-Positive-Rate/cbx.png)
-
 
 ## ![#1589F0](https://placehold.it/15/1589F0/000000?text=+)`Acknowledgments`
