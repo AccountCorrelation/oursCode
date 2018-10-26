@@ -63,7 +63,7 @@ def RandomWalk(graphDict,walkList,nowNode,nowLength,walkLength=40):
 
 
 
-#START是主函数
+#START main function
 def start(father,numpaths):
     #father="data/"
     xDict=loadGraphDict('data/ytb.txt')
@@ -78,7 +78,7 @@ def start(father,numpaths):
             break;
         walkListX=walk(xDict,numpaths,walkfile=father+'walkListX.txt')
         walkListY=walk(yDict,numpaths,walkfile=father+'walkListY.txt')
-        print "请输入游走趟数numpaths"
+        print "Please give the num of paths"
         numpaths = raw_input()
 
 
